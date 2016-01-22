@@ -19,6 +19,7 @@
     <properties>
         <spring-boot.version>1.2.8.RELEASE</spring-boot.version>
         <guava.version>18.0</guava.version>
+        <junit.version>4.12</junit.version>
         <main-class>de.jeha.demo.springboot.SpringBootDemoApplication</main-class>
         <buildTime>${maven.build.timestamp}</buildTime>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss</maven.build.timestamp.format>
@@ -66,7 +67,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
