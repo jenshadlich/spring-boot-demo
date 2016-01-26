@@ -20,6 +20,8 @@
         <spring-boot.version>1.2.8.RELEASE</spring-boot.version>
         <guava.version>18.0</guava.version>
         <junit.version>4.12</junit.version>
+        <dbcp2.version>2.1.1</dbcp2.version>
+        <mysql-connector-java.version>5.1.38</mysql-connector-java.version>
         <main-class>de.jeha.demo.springboot.SpringBootDemoApplication</main-class>
         <buildTime>${maven.build.timestamp}</buildTime>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss</maven.build.timestamp.format>
@@ -58,6 +60,16 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${dbcp2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
