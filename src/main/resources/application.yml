@@ -1,2 +1,5 @@
 server:
   port: 8080
+
+mysql:
+  url: jdbc:mysql://localhost:3306/test
