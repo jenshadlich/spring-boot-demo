@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashAccessEncoder">
+            <jsonGeneratorDecorator class="de.jeha.demo.springboot.logstash.PrettyPrintingDecorator"/>
+            <timeZone>UTC</timeZone>
+            <fieldNames>
+                <fieldsMethod>http_method</fieldsMethod>
+                <fieldsProtocol>http_protocol</fieldsProtocol>
+                <fieldsStatusCode>http_status_code</fieldsStatusCode>
+                <fieldsRequestedUrl>http_requested_url</fieldsRequestedUrl>
+                <fieldsRequestedUri>http_requested_uri</fieldsRequestedUri>
+                <fieldsRemoteHost>http_remote_host</fieldsRemoteHost>
+                <fieldsHostname>http_hostname</fieldsHostname>
+                <fieldsContentLength>http_content_length</fieldsContentLength>
+                <fieldsElapsedTime>http_elapsed_time</fieldsElapsedTime>
+                <!--
+                <fieldsRequestHeaders>http_request_headers</fieldsRequestHeaders>
+                <fieldsResponseHeaders>http_response_headers</fieldsResponseHeaders>
+                -->
+            </fieldNames>
+        </encoder>
+    </appender>
+    <appender-ref ref="CONSOLE" />
+
+</configuration>
