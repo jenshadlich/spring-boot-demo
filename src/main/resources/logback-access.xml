@@ -55,6 +55,11 @@
                         { "application_version": "${project.version}" }
                     </pattern>
                 </pattern>
+                <pattern>
+                    <pattern>
+                        { "tags": "access_log" }
+                    </pattern>
+                </pattern>
             </providers>
         </encoder>
     </appender>
