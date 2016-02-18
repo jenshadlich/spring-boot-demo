@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- Log message format -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+    <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>logstash:4560</destination>
+
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <timeZone>UTC</timeZone>
+            <customFields>{"application_name":"spring-boot-demo"}</customFields>
+        </encoder>
+    </appender>
+    -->
+
+
+    <root level="INFO">
+        <!--
+        <appender-ref ref="stash" />
+        -->
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
