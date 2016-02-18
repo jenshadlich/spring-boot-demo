@@ -3,8 +3,6 @@ package de.jeha.demo.springboot.logstash;
 import com.fasterxml.jackson.core.JsonGenerator;
 import net.logstash.logback.decorate.JsonGeneratorDecorator;
 
-import java.io.IOException;
-
 /**
  * @author jenshadlich@googlemail.com
  */
