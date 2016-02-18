@@ -2,26 +2,62 @@
 <configuration>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="net.logstash.logback.encoder.LogstashAccessEncoder">
+        <encoder class="net.logstash.logback.encoder.AccessEventCompositeJsonEncoder">
             <jsonGeneratorDecorator class="de.jeha.demo.springboot.logstash.PrettyPrintingDecorator"/>
-            <timeZone>UTC</timeZone>
-            <fieldNames>
-                <fieldsMethod>http_method</fieldsMethod>
-                <fieldsProtocol>http_protocol</fieldsProtocol>
-                <fieldsStatusCode>http_status_code</fieldsStatusCode>
-                <fieldsRequestedUrl>http_requested_url</fieldsRequestedUrl>
-                <fieldsRequestedUri>http_requested_uri</fieldsRequestedUri>
-                <fieldsRemoteHost>http_remote_host</fieldsRemoteHost>
-                <fieldsHostname>http_hostname</fieldsHostname>
-                <fieldsContentLength>http_content_length</fieldsContentLength>
-                <fieldsElapsedTime>http_elapsed_time</fieldsElapsedTime>
+            <providers>
+                <timestamp>
+                    <timeZone>UTC</timeZone>
+                </timestamp>
+                <version/>
+                <accessMessage/>
+                <method>
+                    <fieldName>http_method</fieldName>
+                </method>
+                <protocol>
+                    <fieldName>http_protocol</fieldName>
+                </protocol>
+                <statusCode>
+                    <fieldName>http_status_code</fieldName>
+                </statusCode>
+                <requestedUrl>
+                    <fieldName>http_requested_url</fieldName>
+                </requestedUrl>
+                <requestedUri>
+                    <fieldName>http_requested_uri</fieldName>
+                </requestedUri>
+                <remoteHost>
+                    <fieldName>http_remote_host</fieldName>
+                </remoteHost>
+                <hostname>
+                    <fieldName>http_hostname</fieldName>
+                </hostname>
+                <contentLength>
+                    <fieldName>http_content_length</fieldName>
+                </contentLength>
+                <elapsedTime>
+                    <fieldName>http_elapsed_time</fieldName>
+                </elapsedTime>
                 <!--
-                <fieldsRequestHeaders>http_request_headers</fieldsRequestHeaders>
-                <fieldsResponseHeaders>http_response_headers</fieldsResponseHeaders>
+                <requestHeaders>
+                    <fieldName>http_request_headers</fieldName>
+                </requestHeaders>
+                <responseHeaders>
+                    <fieldName>http_response_headers</fieldName>
+                </responseHeaders>
                 -->
-            </fieldNames>
+                <pattern>
+                    <pattern>
+                        { "application_name": "spring-boot-demo" }
+                    </pattern>
+                </pattern>
+                <pattern>
+                    <pattern>
+                        { "application_version": "${project.version}" }
+                    </pattern>
+                </pattern>
+            </providers>
         </encoder>
     </appender>
-    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="CONSOLE"/>
 
 </configuration>
