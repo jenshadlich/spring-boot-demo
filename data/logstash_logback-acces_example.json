@@ -1,16 +1,15 @@
 {
-  "@timestamp": "2016-02-18T21:56:36.031+00:00",
+  "@timestamp": "2016-02-19T11:22:05.135+00:00",
   "@version": 1,
-  "@message": "0:0:0:0:0:0:0:1 - - [2016-02-18T21:56:36.031+00:00] \"GET /version HTTP/1.0\" 200 157",
+  "message": "0:0:0:0:0:0:0:1 - - [2016-02-19T12:22:05.135+01:00] \"GET /version HTTP/1.0\" 200 157",
   "http_method": "GET",
   "http_protocol": "HTTP/1.0",
   "http_status_code": 200,
   "http_requested_url": "GET /version HTTP/1.0",
   "http_requested_uri": "/version",
   "http_remote_host": "0:0:0:0:0:0:0:1",
-  "http_hostname": "0:0:0:0:0:0:0:1",
   "http_content_length": 157,
-  "http_elapsed_time": 42,
+  "http_elapsed_time": 48,
   "http_request_headers": {
     "Accept": "*/*",
     "Host": "localhost:8080",
@@ -18,8 +17,10 @@
   },
   "http_response_headers": {
     "Content-Length": "157",
-    "Date": "Thu, 18 Feb 2016 21:56:35 GMT",
+    "Date": "Fri, 19 Feb 2016 11:22:05 GMT",
     "Content-Type": "application/json; charset=UTF-8"
   },
-  "HOSTNAME": "m401"
+  "application_name": "spring-boot-demo",
+  "application_version": "0.1-SNAPSHOT",
+  "tags": "access_log"
 }
