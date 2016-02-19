@@ -9,7 +9,9 @@
                     <timeZone>UTC</timeZone>
                 </timestamp>
                 <version/>
-                <accessMessage/>
+                <accessMessage>
+                        <fieldName>message</fieldName>
+                </accessMessage>
                 <method>
                     <fieldName>http_method</fieldName>
                 </method>
@@ -28,9 +30,11 @@
                 <remoteHost>
                     <fieldName>http_remote_host</fieldName>
                 </remoteHost>
-                <hostname>
-                    <fieldName>http_hostname</fieldName>
-                </hostname>
+                <!--
+                <remoteUser>
+                    <fieldName>http_remote_user</fieldName>
+                </remoteUser>
+                -->
                 <contentLength>
                     <fieldName>http_content_length</fieldName>
                 </contentLength>
