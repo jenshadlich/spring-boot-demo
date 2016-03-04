@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+
+    <!--
+    <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>logstash:4560</destination>
+        <encoder class="de.jeha.demo.springboot.logstash.AccessLogLogstashEncoder">
+            <applicationName>spring-boot-demo</applicationName>
+            <applicationVersion>0.1-SNAPSHOT</applicationVersion>
+        </encoder>
+    </appender>
+    -->
+
+    <appender name="stash2" class="net.logstash.logback.appender.LogstashAccessTcpSocketAppender">
+        <destination>logstash:4560</destination>
+
         <encoder class="net.logstash.logback.encoder.AccessEventCompositeJsonEncoder">
-            <jsonGeneratorDecorator class="de.jeha.demo.springboot.logstash.PrettyPrintingDecorator"/>
             <providers>
                 <timestamp>
                     <timeZone>UTC</timeZone>
                 </timestamp>
                 <version/>
                 <accessMessage>
-                        <fieldName>message</fieldName>
+                    <fieldName>message</fieldName>
                 </accessMessage>
                 <method>
                     <fieldName>http_method</fieldName>
@@ -30,33 +43,15 @@
                 <remoteHost>
                     <fieldName>http_remote_host</fieldName>
                 </remoteHost>
-                <!--
-                <remoteUser>
-                    <fieldName>http_remote_user</fieldName>
-                </remoteUser>
-                -->
                 <contentLength>
                     <fieldName>http_content_length</fieldName>
                 </contentLength>
                 <elapsedTime>
                     <fieldName>http_elapsed_time</fieldName>
                 </elapsedTime>
-                <!--
-                <requestHeaders>
-                    <fieldName>http_request_headers</fieldName>
-                </requestHeaders>
-                <responseHeaders>
-                    <fieldName>http_response_headers</fieldName>
-                </responseHeaders>
-                -->
                 <pattern>
                     <pattern>
                         { "application_name": "spring-boot-demo" }
-                    </pattern>
-                </pattern>
-                <pattern>
-                    <pattern>
-                        { "application_version": "${project.version}" }
                     </pattern>
                 </pattern>
                 <pattern>
@@ -67,6 +62,21 @@
             </providers>
         </encoder>
     </appender>
-    <appender-ref ref="CONSOLE"/>
+
+    <!--
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="de.jeha.demo.springboot.logstash.AccessLogLogstashEncoder">
+            <applicationName>spring-boot-demo</applicationName>
+            <applicationVersion>0.1-SNAPSHOT</applicationVersion>
+        </encoder>
+    </appender>
+    -->
+
+    <appender-ref ref="stash2" class="ch.qos.logback.access.AsyncAppender"/>
+
+    <!--
+    <appender-ref ref="stash"/>
+    <appender-ref ref="console"/>
+    -->
 
 </configuration>

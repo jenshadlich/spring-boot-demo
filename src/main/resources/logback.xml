@@ -8,22 +8,18 @@
         </encoder>
     </appender>
 
-    <!--
     <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <destination>logstash:4560</destination>
 
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
             <timeZone>UTC</timeZone>
-            <customFields>{"application_name":"spring-boot-demo"}</customFields>
+            <customFields>{"application_name": "spring-boot-demo", "tags": "event_log"}</customFields>
         </encoder>
     </appender>
-    -->
 
 
     <root level="INFO">
-        <!--
         <appender-ref ref="stash" />
-        -->
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>
