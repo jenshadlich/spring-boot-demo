@@ -17,7 +17,6 @@
         </encoder>
     </appender>
 
-
     <root level="INFO">
         <appender-ref ref="stash" />
         <appender-ref ref="STDOUT" />

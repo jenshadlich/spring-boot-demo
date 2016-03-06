@@ -12,7 +12,7 @@ public class AccessLogLogstashEncoder extends AccessEventCompositeJsonEncoder {
 
     @Override
     protected CompositeJsonFormatter<IAccessEvent> createFormatter() {
-        return new MyLogstashAccessFormatter(this);
+        return new AccessLogAccessFormatter(this);
     }
 
     @Override
@@ -21,16 +21,19 @@ public class AccessLogLogstashEncoder extends AccessEventCompositeJsonEncoder {
     }
 
     public void setApplicationName(String applicationName) {
+        addInfo("set application_name to '" + applicationName + "'");
         addPatternProvider("application_name", applicationName);
     }
 
     public void setApplicationVersion(String applicationVersion) {
+        addInfo("set application_version to '" + applicationVersion + "'");
         addPatternProvider("application_version", applicationVersion);
     }
 
     private void addPatternProvider(String key, String value) {
         AccessEventPatternJsonProvider provider = new AccessEventPatternJsonProvider();
         provider.setPattern(String.format("{\"%s\": \"%s\"}", key, value));
+        addInfo("set pattern '" + provider.getPattern() + "'");
         getProviders().addProvider(provider);
     }
 
