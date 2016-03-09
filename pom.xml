@@ -28,7 +28,7 @@
         <main-class>de.jeha.demo.springboot.SpringBootDemoApplication</main-class>
         <buildTime>${maven.build.timestamp}</buildTime>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss</maven.build.timestamp.format>
-        <maven-compiler-plugin.version>3.5</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <buildnumber-maven-plugin.version>1.4</buildnumber-maven-plugin.version>
         <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
     </properties>
