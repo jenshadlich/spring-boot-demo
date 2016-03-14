@@ -8,7 +8,7 @@
 
         <encoder class="de.jeha.demo.springboot.logstash.AccessLogLogstashEncoder">
             <applicationName>spring-boot-demo</applicationName>
-            <applicationVersion>0.1-SNAPSHOT</applicationVersion>
+            <applicationVersion>${project.version}</applicationVersion>
         </encoder>
     </appender>
 
