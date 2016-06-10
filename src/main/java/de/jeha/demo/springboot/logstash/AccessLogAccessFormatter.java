@@ -49,6 +49,7 @@ public class AccessLogAccessFormatter extends AccessEventCompositeJsonFormatter 
     private final RequestHeadersJsonProvider requestHeadersProvider = new RequestHeadersJsonProvider();
     private final ResponseHeadersJsonProvider responseHeadersProvider = new ResponseHeadersJsonProvider();
     private final ContextJsonProvider<IAccessEvent> contextProvider = new ContextJsonProvider<IAccessEvent>();
+    private final UserAgentJsonProvider userAgentJsonProvider = new UserAgentJsonProvider();
 
 
     public AccessLogAccessFormatter(ContextAware declaredOrigin) {
@@ -70,6 +71,7 @@ public class AccessLogAccessFormatter extends AccessEventCompositeJsonFormatter 
         //getProviders().addRequestHeaders(this.requestHeadersProvider);
         //getProviders().addResponseHeaders(this.responseHeadersProvider);
         getProviders().addContext(this.contextProvider);
+        getProviders().addProvider(this.userAgentJsonProvider);
 
         timestampProvider.setTimeZone("UTC");
         messageProvider.setTimeZone("UTC");
