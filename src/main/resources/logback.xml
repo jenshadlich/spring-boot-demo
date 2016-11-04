@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<configuration debug="true">
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- Log message format -->
@@ -8,22 +8,12 @@
         </encoder>
     </appender>
 
-    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <destination>logstash:4560</destination>
-
-        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <timeZone>UTC</timeZone>
-            <customFields>{"application_name": "spring-boot-demo", "tags": "event_log"}</customFields>
-        </encoder>
-    </appender>
 
     <logger name="de.jeha.demo.springboot.resources" level="DEBUG" additivity="false">
-        <appender-ref ref="logstash" />
         <appender-ref ref="STDOUT" />
     </logger>
 
     <root level="INFO">
-        <appender-ref ref="logstash"/>
         <appender-ref ref="STDOUT"/>
     </root>
 
