@@ -4,5 +4,5 @@ server:
 logback.access:
   config: "classpath:logback-access.xml"
 
-mysql:
-  url: jdbc:mysql://localhost:3306/test
+server.error.whitelabel:
+  enabled: false
