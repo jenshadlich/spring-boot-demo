@@ -43,8 +43,13 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
             HttpServletRequest req,
             HttpServletResponse res, FilterChain chain,
             Authentication auth) throws IOException, ServletException {
-        TokenAuthenticationService
-                .addAuthentication(res, auth.getName());
+
+        try {
+            TokenAuthenticationService.addAuthentication(res, auth.getName());
+        } catch (Exception e) {
+            // bam!
+            throw new RuntimeException(e);
+        }
     }
 
 }
